@@ -2,6 +2,12 @@
 
 VS Code Web Extension demonstrating WebUSB access
 
+## Prerequisites
+
+A VS Code Web build available which includes https://github.com/microsoft/vscode/pull/117786
+
+## Description
+
 WebUSB devices can be accessed from web extensions running in the web extension host webworker here:
 
 https://github.com/thegecko/webusb-web-extension/blob/main/src/browser/commands.ts#L23
