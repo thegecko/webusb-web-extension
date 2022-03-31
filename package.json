@@ -1,0 +1,77 @@
+{
+  "name": "webusb-web-extension",
+  "displayName": "WebUSB Web Extension",
+  "description": "VS Code Web Extension demonstrating WebUSB access",
+  "version": "1.0.0",
+  "preview": true,
+  "private": true,
+  "publisher": "thegecko",
+  "author": "Rob Moran <rob@thegecko.org>",
+  "license": "MIT",
+  "browser": "dist/browser/extension.js",
+  "repository": "https://github.com/thegecko/webusb-web-extension",
+  "qna": false,
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "scripts": {
+    "prepare": "yarn build",
+    "clean": "git clean -f -x ./node_modules ./dist",
+    "build": "webpack",
+    "watch": "webpack --mode=development -w",
+    "package": "vsce package --yarn",
+    "browser": "vscode-test-web --sourcesPath=$HOME/Projects/vscode --extensionDevelopmentPath=. ."
+  },
+  "dependencies": {
+    "@vscode/webview-ui-toolkit": "^0.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.20.0",
+    "@types/vscode": "^1.50.0",
+    "@types/vscode-webview": "^1.57.0",
+    "@types/w3c-web-usb": "^1.0.6",
+    "@vscode/test-web": "^0.0.22",
+    "copy-webpack-plugin": "^10.2.4",
+    "ts-loader": "^9.2.6",
+    "typescript": "^3.9.6",
+    "vsce": "^2.6.4",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "webusb.listDevices",
+        "title": "WebUSB: List Devices"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "webusb",
+          "title": "WebUSB",
+          "icon": "$(preview)"
+        }
+      ]
+    },
+    "views": {
+      "webusb": [
+        {
+          "id": "webusb.webview",
+          "type": "webview",
+          "name": "WebUSB",
+          "icon": "$(preview)"
+        }
+      ]
+    }
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "extensionKind": [
+    "ui"
+  ]
+}
