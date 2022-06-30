@@ -54,8 +54,11 @@ export class WebUsbWebview implements vscode.WebviewViewProvider {
                     <script type='module' src='${mainUri}'></script>
                 </head>
                 <body>
-                    <vscode-button id='webusb-button' title='Authorise WebUSB Device' aria-label='Authorise WebUSB Device'>
+                    <vscode-button id='request-button' title='Authorise WebUSB Device' aria-label='Authorise WebUSB Device'>
                         Authorise Device
+                    </vscode-button>
+                    <vscode-button id='list-button' title='List WebUSB Devices' aria-label='List WebUSB Devices'>
+                        List Devices
                     </vscode-button>
                 </body>
             </html>

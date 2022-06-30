@@ -1,8 +1,9 @@
 window.addEventListener('load', () => {
     const vscodeApi = acquireVsCodeApi();
-    const webusbButton = document.getElementById('webusb-button')!;
-    webusbButton.addEventListener('click', async () => {
-        await navigator.usb.requestDevice({ filters: [] });
-        vscodeApi.postMessage('webusb.listDevices');
-    });
+
+    const requestButton = document.getElementById('request-button')!;
+    const listButton = document.getElementById('list-button')!;
+
+    requestButton.addEventListener('click', () => vscodeApi.postMessage('workbench.experimental.requestUsbDevice'));
+    listButton.addEventListener('click', () => vscodeApi.postMessage('webusb.listDevices'));
 });

@@ -10,7 +10,7 @@
 			},
 			"problemMatcher": [],
 			"label": "npm: watch",
-			"detail": "webpack --mode=development -w"
+			"detail": "webpack -w"
 		}
 	]
 }

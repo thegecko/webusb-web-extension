@@ -1,8 +1,14 @@
+//@ts-check
+'use strict';
+
 const path = require('path');
 const copy = require('copy-webpack-plugin');
 
+/** @typedef {import('webpack').Configuration} WebpackConfig **/
+/** @type WebpackConfig */
 const common = {
-    mode: 'production',
+    mode: 'development',
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -20,7 +26,8 @@ const common = {
     }
 };
 
-const config = [
+/** @type WebpackConfig[] */
+module.exports = [
     {
         ...common,
         target: 'webworker',
@@ -54,11 +61,3 @@ const config = [
         ]
     }
 ];
-
-module.exports = (_env, argv) => {
-    if (argv.mode === 'development') {
-        config.forEach(entry => entry.devtool = 'source-map');
-    }
-
-    return config;
-};

@@ -20,8 +20,8 @@
   "scripts": {
     "prepare": "yarn build",
     "clean": "git clean -f -x ./node_modules ./dist",
-    "build": "webpack",
-    "watch": "webpack --mode=development -w",
+    "build": "webpack --mode production",
+    "watch": "webpack -w",
     "package": "vsce package --yarn",
     "browser": "vscode-test-web --sourcesPath=$HOME/Projects/vscode --extensionDevelopmentPath=. ."
   },
